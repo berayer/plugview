@@ -11,7 +11,10 @@ export default function unplugin() {
           'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
         }
       ],
-      dts: 'src/types/auto-imports.d.ts'
+      dts: 'src/types/auto-imports.d.ts',
+      eslintrc: {
+        enabled: true
+      }
     }),
     Components({
       resolvers: [NaiveUiResolver()],
