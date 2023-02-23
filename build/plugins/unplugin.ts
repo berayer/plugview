@@ -5,12 +5,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 export default function unplugin() {
   return [
     AutoImport({
-      imports: [
-        'vue',
-        {
-          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
-        }
-      ],
+      imports: ['vue'],
       dts: 'src/types/auto-imports.d.ts',
       eslintrc: {
         enabled: true

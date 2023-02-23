@@ -33,4 +33,3 @@ const NaiveProviderContent = defineComponent({
   }
 })
 </script>
-<style scoped></style>

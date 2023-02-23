@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import 'tailwindcss/tailwind.css'
+import 'vfonts/FiraSans.css'
 import { setupRouter } from './router'
 
 /**
