@@ -12,7 +12,7 @@
     "lib": ["ESNext", "DOM", "WebWorker"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["vite/client", "naive-ui/volar", "node"],
+    "types": ["vite/client", "naive-ui/volar", "node", "unplugin-icons/types/vue3"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],

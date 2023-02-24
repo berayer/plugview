@@ -1,20 +1,29 @@
 <template>
-  <n-layout has-sider class="h-screen">
-    <n-layout-sider bordered>
+  <n-layout has-sider class="h-screen ring-gray-100">
+    <n-layout-sider
+      bordered
+      collapse-mode="width"
+      :collapsed="appStore.siderCollapse"
+      :collapsed-width="appStore.collapsedWidth"
+      :width="appStore.siderWidth"
+    >
+      <AppLogo />
       <SiderMenu />
     </n-layout-sider>
     <n-layout>
-      <n-layout-header>颐和园路</n-layout-header>
-      <n-layout-content content-style="padding: 24px;">
-        <li>平山道6456aaa</li>
-        <li>fdafsaf123456</li>
-        <li class="text-xl">fdafsaf123456</li>
-        <li class="text-3xl">fdafsaf123456</li>
+      <n-layout-header>
+        <TopHeader />
+      </n-layout-header>
+      <n-layout-content :native-scrollbar="false" content-style="padding: 16px;height: 100%;" style="height: calc(100% - 56px)">
+        <RouterView />
       </n-layout-content>
     </n-layout>
   </n-layout>
 </template>
 
 <script setup lang="ts">
-import { SiderMenu } from './components'
+import { SiderMenu, AppLogo, TopHeader } from './components'
+import { useAppStore } from '@/store'
+
+const appStore = useAppStore()
 </script>

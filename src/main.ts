@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import 'tailwindcss/tailwind.css'
 import 'vfonts/FiraSans.css'
-import { setupRouter } from './router'
+import { setupRouter } from '@/router'
+import { setupStore } from '@/store'
 
 /**
  * 安装vue实例
@@ -10,6 +11,7 @@ import { setupRouter } from './router'
 async function setupApp() {
   const app = createApp(App)
   await setupRouter(app)
+  setupStore(app)
   fixCssClash()
   app.mount('#app')
 }
