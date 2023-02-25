@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :theme-overrides="themeOverrides">
+  <n-config-provider :locale="zhCN" :theme-overrides="themeOverrides">
     <NaiveProvider>
       <RouterView />
     </NaiveProvider>
@@ -7,28 +7,20 @@
 </template>
 
 <script setup lang="ts">
-import { NConfigProvider, GlobalThemeOverrides } from 'naive-ui'
-
+import { NConfigProvider, zhCN } from 'naive-ui'
+import type { GlobalThemeOverrides } from 'naive-ui'
 // 主题配置
 const themeOverrides: GlobalThemeOverrides = {
-  common: {
-    primaryColor: '#6076bb'
-  },
+  common: {},
   Layout: {
     color: '#f3f3f3'
     // siderBorderColor: '#000000'
   },
   Menu: {
-    borderRadius: '15px'
+    borderRadius: '16px'
   },
   Card: {
     borderRadius: '16px'
   }
 }
 </script>
-
-<style>
-.test {
-  color: #6076bb;
-}
-</style>

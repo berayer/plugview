@@ -1,9 +1,10 @@
 <template>
   <n-menu
-    :indent="18"
+    :indent="20"
     :options="menuOptions"
     :collapsed-width="appStore.collapsedWidth"
     :collapsed="appStore.siderCollapse"
+    :value="route.fullPath"
     @update:value="handleUpdateValue"
   />
 </template>
@@ -12,8 +13,11 @@
 import type { MenuOption } from 'naive-ui'
 import { useAppStore } from '@/store'
 import Icon from '@/components/Icon.vue'
+import { router } from '@/router'
+import { useRoute } from 'vue-router'
 
 const appStore = useAppStore()
+const route = useRoute()
 const menuOptions: MenuOption[] = [
   {
     icon: () => h(Icon, { name: 'Accessibility' }),
@@ -38,13 +42,29 @@ const menuOptions: MenuOption[] = [
     ]
   },
   {
+    icon: () => h(Icon, { name: 'Config' }),
+    label: '系统控制',
+    key: '/system',
+    children: [
+      {
+        icon: () => h(Icon, { name: 'UsersGear' }),
+        label: '用户管理',
+        key: '/system/userManagement'
+      }
+    ]
+  },
+  {
     icon: () => h(Icon, { name: 'AboutCircleOutline' }),
     label: '关于',
     key: '/about'
   }
 ]
 
+onMounted(() => {
+  console.log(route)
+})
+
 function handleUpdateValue(key: string) {
-  console.log(key)
+  router.push(key)
 }
 </script>
