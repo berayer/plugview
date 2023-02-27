@@ -11,7 +11,15 @@ import { NConfigProvider, zhCN } from 'naive-ui'
 import type { GlobalThemeOverrides } from 'naive-ui'
 // 主题配置
 const themeOverrides: GlobalThemeOverrides = {
-  common: {},
+  common: {
+    primaryColor: '#5f7eef',
+    primaryColorHover: '#5070e7',
+    fontSize: '16px',
+    fontSizeMedium: '16px',
+    fontSizeSmall: '16px',
+    fontSizeMini: '14px',
+    fontSizeLarge: '25px'
+  },
   Layout: {
     color: '#f3f3f3'
     // siderBorderColor: '#000000'
@@ -22,5 +30,19 @@ const themeOverrides: GlobalThemeOverrides = {
   Card: {
     borderRadius: '16px'
   }
+  // Form: {
+  //   labelFontSizeTopMedium: '16px'
+  // },
+  // Button: {
+  //   fontSizeMedium: '16px'
+  // }
 }
 </script>
+
+<style>
+.test {
+  color: #184767;
+  font-size: 16px;
+  font-family: Raleway, sans-serif;
+}
+</style>
