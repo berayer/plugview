@@ -38,6 +38,11 @@ const menuOptions: MenuOption[] = [
         icon: () => h(Icon, { name: 'Accessibility' }),
         label: '联思数据导出',
         key: '/liansiERP'
+      },
+      {
+        icon: () => h(Icon, { name: 'Accessibility' }),
+        label: '报价明细导出',
+        key: '/PriceDetail'
       }
     ]
   },
