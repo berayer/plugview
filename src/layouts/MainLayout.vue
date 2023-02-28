@@ -14,7 +14,11 @@
       <n-layout-header>
         <TopHeader />
       </n-layout-header>
-      <n-layout-content :native-scrollbar="false" content-style="padding: 16px;" style="height: calc(100% - 56px)">
+      <n-layout-content
+        :native-scrollbar="false"
+        content-style="padding: 16px;"
+        style="height: calc(100% - 56px)"
+      >
         <RouterView />
       </n-layout-content>
     </n-layout>
