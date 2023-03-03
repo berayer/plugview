@@ -1,16 +1,42 @@
 import { random } from 'lodash'
 
-/** 模拟登录接口 */
-export const api_login = (auth: string) => {
-  console.log(`登录认证: ${auth}`)
+export const api_UserMenu = () => {
   return new Promise<any>((res) => {
-    const data = {
-      code: '200',
-      msg: '',
-      data: '1E31BC2A8BA5C9DEE337A0D6CF007B93'
-    }
+    const data: GlobalMenu[] = [
+      {
+        path: '/home',
+        title: '首页',
+        icon: 'carbon:home'
+      },
+      {
+        path: '/system',
+        title: '系统管理',
+        icon: 'icon-park-outline:config',
+        children: [
+          {
+            path: '/system/user',
+            title: '用户管理',
+            icon: 'ph:users-three-light'
+          },
+          {
+            path: '/system/role',
+            title: '角色管理',
+            icon: 'carbon:user-role'
+          },
+          {
+            path: '/system/menu',
+            title: '菜单管理',
+            icon: 'gg:menu-grid-r'
+          }
+        ]
+      }
+    ]
     setTimeout(() => {
-      res(data)
-    }, random(3) * 1000)
+      res({
+        code: 200,
+        msg: '',
+        data: data
+      })
+    }, random(3, true) * 1000)
   })
 }

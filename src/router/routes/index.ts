@@ -1,5 +1,8 @@
 import type { RouteRecordRaw } from 'vue-router'
 
+/**
+ * 静态路由菜单
+ */
 export const constantRoutes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -11,17 +14,20 @@ export const constantRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/_base/Login.vue')
   },
   {
+    path: '/404',
+    name: 'NotFound',
+    component: () => import('@/views/_base/404.vue')
+  },
+  {
     path: '/index',
-    component: () => import('@/layouts/MainLayout.vue'),
-    children: [
-      {
-        path: '/system/userManagement',
-        component: () => import('@/views/system/UserManagement.vue')
-      },
-      {
-        path: '/PriceDetail',
-        component: () => import('@/views/exportData/PriceDetail.vue')
-      }
-    ]
+    name: 'MainLayout',
+    component: () => import('@/layouts/MainLayout.vue')
+  },
+  {
+    path: '/:path(.*)*',
+    name: 'Other',
+    redirect: (to) => {
+      return { path: '/index', query: { url: to.path, query: JSON.stringify(to.query) } }
+    }
   }
 ]

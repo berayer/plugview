@@ -34,7 +34,6 @@
 
 <script setup lang="ts">
 import type { FormInst, InputInst } from 'naive-ui'
-import { api_login } from '@/mock'
 import { router } from '@/router'
 
 /** 表单对象 */
@@ -79,19 +78,19 @@ function submit() {
  * @param password 密码
  */
 function login(username: string, password: string) {
-  api_login(`u_${username},p_${password}`)
-    .then((res) => {
-      console.log(res)
-      if (res.code == 200) {
-        router.push('/index')
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-    .finally(() => {
-      state.loading = false
-    })
+  // api_login(`u_${username},p_${password}`)
+  //   .then((res) => {
+  //     console.log(res)
+  //     if (res.code == 200) {
+  //       router.push('/index')
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  //   .finally(() => {
+  //     state.loading = false
+  //   })
 }
 // 渲染完成后自动获取焦点
 nextTick(() => {

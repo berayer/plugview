@@ -1,12 +1,14 @@
 <template>
-  <n-icon :component="icons[name]" :size="size" :color="color"> </n-icon>
+  <n-icon :size="size" :color="color">
+    <icon :icon="name" />
+  </n-icon>
 </template>
 
 <script setup lang="ts">
-import icons from '@/assets/SvgImport'
+import { Icon } from '@iconify/vue'
 
 interface Props {
-  name: keyof typeof icons
+  name: string
   size?: number | string
   color?: string
 }

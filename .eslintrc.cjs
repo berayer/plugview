@@ -1,3 +1,5 @@
+const { off } = require('process')
+
 module.exports = {
   //此项是用来告诉eslint找当前配置文件不能往父级查找
   root: true,
@@ -9,7 +11,12 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   // 此项是用来配置标准的js风格，就是说写代码的时候要规范的写，如果你使用vs-code我觉得应该可以避免出错
-  extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:@typescript-eslint/recommended', './.eslintrc-auto-import.json'],
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/vue3-essential',
+    'plugin:@typescript-eslint/recommended',
+    './.eslintrc-auto-import.json'
+  ],
   overrides: [],
   //此项是用来指定eslint解析器的，解析器必须符合规则，babel-eslint解析器是对babel解析器的包装使其与ESLint解析
   parser: 'vue-eslint-parser',
@@ -31,6 +38,7 @@ module.exports = {
   // 了解了上面这些，下面这些代码相信也看的明白了
   rules: {
     // 关闭vue组件大小写名称限定
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'no-undef': off
   }
 }

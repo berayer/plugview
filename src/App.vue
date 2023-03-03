@@ -13,23 +13,18 @@ import type { GlobalThemeOverrides } from 'naive-ui'
 const themeOverrides: GlobalThemeOverrides = {
   common: {
     primaryColor: '#5f7eef',
-    primaryColorHover: '#5070e7',
-    fontSize: '16px',
-    fontSizeMedium: '16px',
-    fontSizeSmall: '16px',
-    fontSizeMini: '14px',
-    fontSizeLarge: '25px'
+    primaryColorHover: '#5070e7'
   },
   Layout: {
     color: '#f3f3f3'
     // siderBorderColor: '#000000'
-  },
-  Menu: {
-    borderRadius: '16px'
-  },
-  Card: {
-    borderRadius: '16px'
   }
+  // Menu: {
+  //   borderRadius: '16px'
+  // },
+  // Card: {
+  //   borderRadius: '16px'
+  // }
   // Form: {
   //   labelFontSizeTopMedium: '16px'
   // },
