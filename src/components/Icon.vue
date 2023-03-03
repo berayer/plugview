@@ -1,11 +1,11 @@
 <template>
   <n-icon :size="size" :color="color">
-    <icon :icon="name" />
+    <v-Icon :icon="name" />
   </n-icon>
 </template>
 
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
+import { Icon as vIcon } from '@iconify/vue'
 
 interface Props {
   name: string
