@@ -1,3 +1,9 @@
 <template>
-  <h1>服务器不在线</h1>
+  <div class="flex h-screen w-screen items-center justify-center">
+    <n-result status="500" title="500 服务器错误" description="服务器出错可能说明该雇更多程序员了">
+      <template #footer>
+        <n-button>散财消灾</n-button>
+      </template>
+    </n-result>
+  </div>
 </template>

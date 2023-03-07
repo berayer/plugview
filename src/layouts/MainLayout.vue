@@ -53,7 +53,11 @@ api_userMenu()
   })
   .catch((err) => {
     console.log(err)
-    router.push('/login')
+    if (err.msg) {
+      router.push('/login')
+    } else {
+      router.push('/500')
+    }
   })
 
 // 移除全路径匹配导向404

@@ -19,6 +19,11 @@ export const constantRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/_base/404.vue')
   },
   {
+    path: '/500',
+    name: 'ServerError',
+    component: () => import('@/views/_base/500.vue')
+  },
+  {
     path: '/index',
     name: 'MainLayout',
     component: () => import('@/layouts/MainLayout.vue')
