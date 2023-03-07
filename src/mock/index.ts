@@ -9,6 +9,11 @@ export const api_UserMenu = () => {
         icon: 'carbon:home'
       },
       {
+        path: '/search',
+        title: '搜索引擎',
+        icon: 'material-symbols:search-sharp'
+      },
+      {
         path: '/system',
         title: '系统管理',
         icon: 'icon-park-outline:config',
@@ -29,6 +34,11 @@ export const api_UserMenu = () => {
             icon: 'gg:menu-grid-r'
           }
         ]
+      },
+      {
+        path: '/about',
+        title: '关于',
+        icon: 'mdi:about-circle-outline'
       }
     ]
     setTimeout(() => {

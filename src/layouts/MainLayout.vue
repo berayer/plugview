@@ -1,5 +1,5 @@
 <template>
-  <n-layout has-sider class="h-screen ring-gray-100">
+  <n-layout has-sider class="h-screen">
     <n-layout-sider
       bordered
       collapse-mode="width"
@@ -32,13 +32,15 @@ import { router } from '@/router'
 import { useRoute } from 'vue-router'
 import { api_UserMenu } from '@/mock'
 import { loadAsyncRoutes } from '@/utils/router'
+import { api_userMenu } from '@/api'
 
 const appStore = useAppStore()
 const route = useRoute()
 const tabStore = useTabStore()
 
 // 从后台加载路由菜单
-api_UserMenu().then((res) => {
+api_userMenu().then((res) => {
+  console.log(res)
   tabStore.menus = res.data
   loadAsyncRoutes(tabStore.menus)
   removeAllPatch()

@@ -6,7 +6,7 @@ import type { RouteRecordRaw } from 'vue-router'
 export const constantRoutes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/index'
+    redirect: '/login'
   },
   {
     path: '/login',

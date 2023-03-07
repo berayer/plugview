@@ -25,7 +25,7 @@ const menuOptions = (menus: GlobalMenu[]): MenuOption[] => {
   return menus.map((v) => {
     const item: MenuOption = {
       key: v.path,
-      label: v.title,
+      label: v.label,
       icon: () => h(Icon, { name: v.icon ? v.icon : 'material-symbols:menu' })
     }
     if (v.children) {

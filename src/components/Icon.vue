@@ -1,6 +1,6 @@
 <template>
   <n-icon :size="size" :color="color">
-    <v-Icon :icon="name" />
+    <vIcon :icon="name" />
   </n-icon>
 </template>
 
@@ -14,7 +14,6 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  size: 24,
-  color: '#000'
+  size: 24
 })
 </script>

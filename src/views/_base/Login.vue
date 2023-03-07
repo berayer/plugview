@@ -22,7 +22,10 @@
             @keyup.enter="submit"
           ></n-input>
         </n-form-item>
-        <n-form-item>
+        <n-form-item label-placement="left">
+          <n-checkbox v-model:checked="formData.rememberMe"> 记住我? </n-checkbox>
+        </n-form-item>
+        <n-form-item label-placement="left">
           <n-button :loading="state.loading" style="width: 100%" type="primary" @click="submit"
             >登陆</n-button
           >
@@ -35,6 +38,7 @@
 <script setup lang="ts">
 import type { FormInst, InputInst } from 'naive-ui'
 import { router } from '@/router'
+import { api_login } from '@/api'
 
 /** 表单对象 */
 const formRef = ref<FormInst>()
@@ -42,7 +46,8 @@ const usernameInput = ref<InputInst>()
 /** 表单数据 */
 const formData = reactive({
   username: '',
-  password: ''
+  password: '',
+  rememberMe: 'false'
 })
 /** 表单状态 */
 const state = reactive({
@@ -78,19 +83,16 @@ function submit() {
  * @param password 密码
  */
 function login(username: string, password: string) {
-  // api_login(`u_${username},p_${password}`)
-  //   .then((res) => {
-  //     console.log(res)
-  //     if (res.code == 200) {
-  //       router.push('/index')
-  //     }
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  //   .finally(() => {
-  //     state.loading = false
-  //   })
+  api_login(formData)
+    .then(() => {
+      router.push('/index')
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+    .finally(() => {
+      state.loading = false
+    })
 }
 // 渲染完成后自动获取焦点
 nextTick(() => {

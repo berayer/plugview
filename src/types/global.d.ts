@@ -8,7 +8,7 @@ interface Window {
 
 interface GlobalMenu {
   path: string
-  title: string
+  label: string
   icon?: string
   children?: GlobalMenu[]
 }
