@@ -30,26 +30,31 @@ import { SiderMenu, AppLogo, TopHeader } from './components'
 import { useAppStore, useTabStore } from '@/store'
 import { router } from '@/router'
 import { useRoute } from 'vue-router'
-import { api_UserMenu } from '@/mock'
 import { loadAsyncRoutes } from '@/utils/router'
 import { api_userMenu } from '@/api'
+import { isBuffer } from 'lodash'
 
 const appStore = useAppStore()
 const route = useRoute()
 const tabStore = useTabStore()
 
 // 从后台加载路由菜单
-api_userMenu().then((res) => {
-  console.log(res)
-  tabStore.menus = res.data
-  loadAsyncRoutes(tabStore.menus)
-  removeAllPatch()
-  const is = ohterSkip()
-  // 访问主页跳转第一个路由
-  if (!is && tabStore.menus && tabStore.menus.length > 0) {
-    router.push(tabStore.menus[0].path)
-  }
-})
+api_userMenu()
+  .then((res) => {
+    console.log(res)
+    tabStore.menus = res.data
+    loadAsyncRoutes(tabStore.menus)
+    removeAllPatch()
+    const is = ohterSkip()
+    // 访问主页跳转第一个路由
+    if (!is && tabStore.menus && tabStore.menus.length > 0) {
+      router.push(tabStore.menus[0].path)
+    }
+  })
+  .catch((err) => {
+    console.log(err)
+    router.push('/login')
+  })
 
 // 移除全路径匹配导向404
 function removeAllPatch() {
